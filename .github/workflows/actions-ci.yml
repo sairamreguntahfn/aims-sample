@@ -35,6 +35,7 @@ jobs:
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+      working-directory: ./dockerfile
 
     # - name: Update kube config
     #   run: aws eks update-kubeconfig --name primuslearning
