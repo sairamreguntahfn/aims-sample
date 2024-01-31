@@ -30,10 +30,10 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build the aims Docker image
-        env:
+      env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-        run: |
+      run: |
           
           docker build --cache-from $REGISTRY/aimstest/aims:latest -t $REGISTRY/aimstest/aims:$IMAGE_TAG .
           docker tag $REGISTRY/aimstest/aims:$IMAGE_TAG $REGISTRY/aimstest/aims:latest
