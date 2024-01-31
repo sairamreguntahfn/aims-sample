@@ -35,10 +35,10 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
       run: |
           
-          docker build --cache-from $REGISTRY/aimstest/aims:latest -t $REGISTRY/aimstest/aims:$IMAGE_TAG .
-          docker tag $REGISTRY/aimstest/aims:$IMAGE_TAG $REGISTRY/aimstest/aims:latest
-          docker push $REGISTRY/aimstest/aims:$IMAGE_TAG
-          docker push $REGISTRY/aimstest/aims:latest
+          docker build --cache-from $REGISTRY/aimstest:latest -t $REGISTRY/aimstest:$IMAGE_TAG .
+          docker tag $REGISTRY/aimstest:$IMAGE_TAG $REGISTRY/aimstest:latest
+          docker push $REGISTRY/aimstest:$IMAGE_TAG
+          docker push $REGISTRY/aimstest:latest
 
     # - name: Update kube config
     #   run: aws eks update-kubeconfig --name primuslearning
